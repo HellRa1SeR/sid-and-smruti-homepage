@@ -4,15 +4,18 @@ Drop any photos here — **any filename** works (e.g. `beach-day.jpg`, `birthday
 
 Supported formats: **JPG, PNG, WebP, GIF** (convert HEIC to JPG first).
 
-## After adding or removing photos
+## Adding photos
 
-Run this from the project folder:
+1. Copy images into this folder
+2. Commit and push to GitHub
+
+A **GitHub Action** automatically regenerates `manifest.json` when gallery files change — you don’t need to run Python locally.
+
+To update manually (optional):
 
 ```bash
 python scripts/generate-gallery.py
 ```
-
-That updates `manifest.json`, which the website reads to build the carousel and landing-page polaroids.
 
 Photos are shown in **alphabetical order** by filename. Captions are generated from the filename (e.g. `beach-day.jpg` → “Beach Day”).
 
