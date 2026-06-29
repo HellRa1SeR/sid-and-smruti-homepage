@@ -94,17 +94,24 @@
     }
   }
 
+  function captionFromFile(fileOrSrc) {
+    var name = fileOrSrc.split("/").pop() || fileOrSrc;
+    var dot = name.lastIndexOf(".");
+    return dot > 0 ? name.slice(0, dot) : name;
+  }
+
   function buildCarouselSlides(images) {
     if (!track) return;
     track.innerHTML = "";
     for (var i = 0; i < images.length; i++) {
       var item = images[i];
+      var caption = item.caption || captionFromFile(item.file || item.src);
       var slide = document.createElement("figure");
       slide.className = "carousel-slide";
-      slide.setAttribute("data-caption", item.caption);
+      slide.setAttribute("data-caption", caption);
       var img = document.createElement("img");
       img.src = item.src;
-      img.alt = item.caption;
+      img.alt = caption;
       img.width = 800;
       img.height = 800;
       img.loading = i === 0 ? "eager" : "lazy";

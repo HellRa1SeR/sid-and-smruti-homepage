@@ -1,35 +1,35 @@
 {
-  "generated": "2026-06-29T18:24:19.341699+00:00",
+  "generated": "2026-06-29T18:27:36.998339+00:00",
   "images": [
     {
       "file": "family-1.jpg",
       "src": "images/gallery/family-1.jpg",
-      "caption": "Family 1"
+      "caption": "family-1"
     },
     {
       "file": "family-2.jpg",
       "src": "images/gallery/family-2.jpg",
-      "caption": "Family 2"
+      "caption": "family-2"
     },
     {
       "file": "family-3.jpg",
       "src": "images/gallery/family-3.jpg",
-      "caption": "Family 3"
+      "caption": "family-3"
     },
     {
       "file": "family-4.jpg",
       "src": "images/gallery/family-4.jpg",
-      "caption": "Family 4"
+      "caption": "family-4"
     },
     {
       "file": "family-5.jpg",
       "src": "images/gallery/family-5.jpg",
-      "caption": "Family 5"
+      "caption": "family-5"
     },
     {
       "file": "family-6.jpg",
       "src": "images/gallery/family-6.jpg",
-      "caption": "Family 6"
+      "caption": "family-6"
     }
   ]
 }

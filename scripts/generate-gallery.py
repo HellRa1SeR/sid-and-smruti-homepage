@@ -12,8 +12,8 @@ SKIP = {"manifest.json"}
 
 
 def caption_from_filename(filename: str) -> str:
-    stem = Path(filename).stem.replace("-", " ").replace("_", " ")
-    return stem.strip().title() or "Photo"
+    """Use the filename without extension, exactly as named."""
+    return Path(filename).stem.strip() or "Photo"
 
 
 def main() -> None:

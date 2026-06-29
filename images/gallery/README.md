@@ -17,6 +17,6 @@ To update manually (optional):
 python scripts/generate-gallery.py
 ```
 
-Photos are shown in **alphabetical order** by filename. Captions are generated from the filename (e.g. `beach-day.jpg` → “Beach Day”).
+Photos are shown in **alphabetical order** by filename. The caption is the **filename without the extension** (e.g. `at the florida beach!.jpg` → “at the florida beach!”).
 
 The first four photos also appear as polaroids on the home screen.
