@@ -1,9 +1,19 @@
 # Family photos
 
-Drop your own photos here, keeping the same filenames:
+Drop any photos here — **any filename** works (e.g. `beach-day.jpg`, `birthday.png`).
 
-- `family-1.jpg` through `family-6.jpg`
+Supported formats: **JPG, PNG, WebP, GIF** (convert HEIC to JPG first).
 
-Recommended size: at least 600×600 px. JPG or WebP both work — if you use WebP, update the `src` paths in `index.html`.
+## After adding or removing photos
 
-These placeholder images are from [Unsplash](https://unsplash.com) and can be replaced anytime.
+Run this from the project folder:
+
+```bash
+python scripts/generate-gallery.py
+```
+
+That updates `manifest.json`, which the website reads to build the carousel and landing-page polaroids.
+
+Photos are shown in **alphabetical order** by filename. Captions are generated from the filename (e.g. `beach-day.jpg` → “Beach Day”).
+
+The first four photos also appear as polaroids on the home screen.

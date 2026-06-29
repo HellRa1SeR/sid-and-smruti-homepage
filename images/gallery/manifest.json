@@ -1,0 +1,35 @@
+{
+  "generated": "2026-06-29T18:18:16.981227+00:00",
+  "images": [
+    {
+      "file": "family-1.jpg",
+      "src": "images/gallery/family-1.jpg",
+      "caption": "Family 1"
+    },
+    {
+      "file": "family-2.jpg",
+      "src": "images/gallery/family-2.jpg",
+      "caption": "Family 2"
+    },
+    {
+      "file": "family-3.jpg",
+      "src": "images/gallery/family-3.jpg",
+      "caption": "Family 3"
+    },
+    {
+      "file": "family-4.jpg",
+      "src": "images/gallery/family-4.jpg",
+      "caption": "Family 4"
+    },
+    {
+      "file": "family-5.jpg",
+      "src": "images/gallery/family-5.jpg",
+      "caption": "Family 5"
+    },
+    {
+      "file": "family-6.jpg",
+      "src": "images/gallery/family-6.jpg",
+      "caption": "Family 6"
+    }
+  ]
+}

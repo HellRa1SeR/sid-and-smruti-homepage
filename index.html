@@ -23,12 +23,7 @@
       <div class="grain"></div>
     </div>
 
-    <div class="polaroids" aria-hidden="true">
-      <div class="polaroid polaroid-1"><img src="images/gallery/family-1.jpg" alt="" width="120" height="120"></div>
-      <div class="polaroid polaroid-2"><img src="images/gallery/family-2.jpg" alt="" width="120" height="120"></div>
-      <div class="polaroid polaroid-3"><img src="images/gallery/family-3.jpg" alt="" width="120" height="120"></div>
-      <div class="polaroid polaroid-4"><img src="images/gallery/family-4.jpg" alt="" width="120" height="120"></div>
-    </div>
+    <div class="polaroids" id="polaroids" aria-hidden="true"></div>
 
     <div class="landing-content">
       <p class="landing-eyebrow">Welcome to our world</p>
@@ -69,41 +64,23 @@
       <h2 class="panel-title" id="gallery-title">Photo gallery</h2>
     </div>
     <div class="panel-body panel-body--gallery">
-      <p class="section-desc">Swipe or use the arrows to browse photos.</p>
+      <p class="section-desc" id="gallery-desc">Swipe or use the arrows to browse photos.</p>
+      <p class="gallery-empty" id="gallery-empty" hidden>No photos yet. Drop images into <code>images/gallery/</code>, then run <code>python scripts/generate-gallery.py</code>.</p>
 
-      <div class="gallery-carousel" id="gallery-carousel">
+      <div class="gallery-carousel" id="gallery-carousel" hidden>
         <div class="carousel-main">
           <button class="carousel-btn carousel-prev" type="button" id="carousel-prev" aria-label="Previous photo">&#8249;</button>
 
           <div class="carousel-viewport" id="carousel-viewport">
-            <div class="carousel-track" id="carousel-track">
-              <figure class="carousel-slide" data-caption="Together">
-                <img src="images/gallery/family-1.jpg" alt="Family moment together" width="800" height="800" loading="lazy">
-              </figure>
-              <figure class="carousel-slide" data-caption="Adventures">
-                <img src="images/gallery/family-2.jpg" alt="Family adventure outdoors" width="800" height="800" loading="lazy">
-              </figure>
-              <figure class="carousel-slide" data-caption="Celebrations">
-                <img src="images/gallery/family-3.jpg" alt="Celebrating a special day" width="800" height="800" loading="lazy">
-              </figure>
-              <figure class="carousel-slide" data-caption="At home">
-                <img src="images/gallery/family-4.jpg" alt="Quiet moment at home" width="800" height="800" loading="lazy">
-              </figure>
-              <figure class="carousel-slide" data-caption="Travel">
-                <img src="images/gallery/family-5.jpg" alt="Family travel memory" width="800" height="800" loading="lazy">
-              </figure>
-              <figure class="carousel-slide" data-caption="Memories">
-                <img src="images/gallery/family-6.jpg" alt="Making memories" width="800" height="800" loading="lazy">
-              </figure>
-            </div>
+            <div class="carousel-track" id="carousel-track"></div>
           </div>
 
           <button class="carousel-btn carousel-next" type="button" id="carousel-next" aria-label="Next photo">&#8250;</button>
         </div>
 
         <div class="carousel-meta">
-          <p class="carousel-caption" id="carousel-caption">Together</p>
-          <p class="carousel-counter" id="carousel-counter" aria-live="polite">1 / 6</p>
+          <p class="carousel-caption" id="carousel-caption"></p>
+          <p class="carousel-counter" id="carousel-counter" aria-live="polite"></p>
         </div>
 
         <div class="carousel-dots" id="carousel-dots" role="tablist" aria-label="Photo thumbnails"></div>

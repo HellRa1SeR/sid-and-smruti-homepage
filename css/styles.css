@@ -459,6 +459,16 @@ button:focus-visible {
   margin: 0 0 1.5rem;
 }
 
+.gallery-empty {
+  text-align: center;
+  color: var(--text-muted);
+  padding: 2rem 1rem;
+  margin: 0;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 14px;
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+}
+
 /* Link cards (dark) */
 .links-grid {
   display: grid;
