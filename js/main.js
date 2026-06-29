@@ -74,17 +74,36 @@
   var touchDeltaX = 0;
   var isDragging = false;
   var carouselReady = false;
+  var polaroidsBuilt = false;
+
+  function encodeGallerySrc(src) {
+    var slash = src.lastIndexOf("/");
+    if (slash === -1) return encodeURIComponent(src);
+    return src.slice(0, slash + 1) + encodeURIComponent(src.slice(slash + 1));
+  }
+
+  function pickRandom(items, count) {
+    var pool = items.slice();
+    var picked = [];
+    var n = Math.min(count, pool.length);
+    for (var i = 0; i < n; i++) {
+      var idx = Math.floor(Math.random() * pool.length);
+      picked.push(pool[idx]);
+      pool.splice(idx, 1);
+    }
+    return picked;
+  }
 
   function buildPolaroids(images) {
     if (!polaroidsEl) return;
     polaroidsEl.innerHTML = "";
-    var count = Math.min(POLAROID_SLOTS, images.length);
-    for (var p = 0; p < count; p++) {
-      var item = images[p];
+    var selection = pickRandom(images, POLAROID_SLOTS);
+    for (var p = 0; p < selection.length; p++) {
+      var item = selection[p];
       var div = document.createElement("div");
       div.className = "polaroid " + polaroidClasses[p];
       var img = document.createElement("img");
-      img.src = item.src;
+      img.src = encodeGallerySrc(item.src);
       img.alt = "";
       img.width = 200;
       img.height = 200;
@@ -110,7 +129,7 @@
       slide.className = "carousel-slide";
       slide.setAttribute("data-caption", caption);
       var img = document.createElement("img");
-      img.src = item.src;
+      img.src = encodeGallerySrc(item.src);
       img.alt = caption;
       img.width = 800;
       img.height = 800;
@@ -131,7 +150,10 @@
 
   function showGallery(images) {
     galleryImages = images;
-    buildPolaroids(images);
+    if (!polaroidsBuilt) {
+      buildPolaroids(images);
+      polaroidsBuilt = true;
+    }
     buildCarouselSlides(images);
     buildDots();
     goTo(0, false);
@@ -146,19 +168,29 @@
     }
   }
 
+  function applyGallery(data) {
+    var images = data && data.images ? data.images : [];
+    if (!images.length) showGalleryEmpty();
+    else showGallery(images);
+  }
+
   function loadGallery() {
-    fetch(MANIFEST_URL)
+    if (window.GALLERY_MANIFEST && window.GALLERY_MANIFEST.images) {
+      applyGallery(window.GALLERY_MANIFEST);
+    }
+
+    fetch(MANIFEST_URL, { cache: "no-store" })
       .then(function (res) {
         if (!res.ok) throw new Error("manifest not found");
         return res.json();
       })
       .then(function (data) {
-        var images = data && data.images ? data.images : [];
-        if (!images.length) showGalleryEmpty();
-        else showGallery(images);
+        applyGallery(data);
       })
       .catch(function () {
-        showGalleryEmpty();
+        if (!window.GALLERY_MANIFEST || !window.GALLERY_MANIFEST.images || !window.GALLERY_MANIFEST.images.length) {
+          showGalleryEmpty();
+        }
       });
   }
 

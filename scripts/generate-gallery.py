@@ -35,9 +35,18 @@ def main() -> None:
         "generated": datetime.now(timezone.utc).isoformat(),
         "images": images,
     }
+    manifest_json = json.dumps(manifest, indent=2) + "\n"
+
     out = GALLERY_DIR / "manifest.json"
-    out.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
-    print(f"Wrote {len(images)} image(s) to {out.relative_to(ROOT)}")
+    out.write_text(manifest_json, encoding="utf-8")
+
+    js_out = ROOT / "js" / "gallery-data.js"
+    js_out.write_text(
+        "window.GALLERY_MANIFEST = " + json.dumps(manifest, ensure_ascii=False) + ";\n",
+        encoding="utf-8",
+    )
+
+    print(f"Wrote {len(images)} image(s) to {out.relative_to(ROOT)} and {js_out.relative_to(ROOT)}")
 
 
 if __name__ == "__main__":
