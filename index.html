@@ -68,33 +68,45 @@
       <button class="panel-back" type="button" data-close aria-label="Back to home">&larr; Home</button>
       <h2 class="panel-title" id="gallery-title">Photo gallery</h2>
     </div>
-    <div class="panel-body">
-      <p class="section-desc">Tap any photo to view it larger.</p>
-      <div class="gallery-grid">
-        <button class="gallery-item" type="button" aria-label="View family photo 1">
-          <img src="images/gallery/family-1.jpg" alt="Family moment together" width="400" height="400" loading="lazy">
-          <span class="gallery-caption">Together</span>
-        </button>
-        <button class="gallery-item" type="button" aria-label="View family photo 2">
-          <img src="images/gallery/family-2.jpg" alt="Family adventure outdoors" width="400" height="400" loading="lazy">
-          <span class="gallery-caption">Adventures</span>
-        </button>
-        <button class="gallery-item" type="button" aria-label="View family photo 3">
-          <img src="images/gallery/family-3.jpg" alt="Celebrating a special day" width="400" height="400" loading="lazy">
-          <span class="gallery-caption">Celebrations</span>
-        </button>
-        <button class="gallery-item" type="button" aria-label="View family photo 4">
-          <img src="images/gallery/family-4.jpg" alt="Quiet moment at home" width="400" height="400" loading="lazy">
-          <span class="gallery-caption">At home</span>
-        </button>
-        <button class="gallery-item" type="button" aria-label="View family photo 5">
-          <img src="images/gallery/family-5.jpg" alt="Family travel memory" width="400" height="400" loading="lazy">
-          <span class="gallery-caption">Travel</span>
-        </button>
-        <button class="gallery-item" type="button" aria-label="View family photo 6">
-          <img src="images/gallery/family-6.jpg" alt="Making memories" width="400" height="400" loading="lazy">
-          <span class="gallery-caption">Memories</span>
-        </button>
+    <div class="panel-body panel-body--gallery">
+      <p class="section-desc">Swipe or use the arrows to browse photos.</p>
+
+      <div class="gallery-carousel" id="gallery-carousel">
+        <div class="carousel-main">
+          <button class="carousel-btn carousel-prev" type="button" id="carousel-prev" aria-label="Previous photo">&#8249;</button>
+
+          <div class="carousel-viewport" id="carousel-viewport">
+            <div class="carousel-track" id="carousel-track">
+              <figure class="carousel-slide" data-caption="Together">
+                <img src="images/gallery/family-1.jpg" alt="Family moment together" width="800" height="800" loading="lazy">
+              </figure>
+              <figure class="carousel-slide" data-caption="Adventures">
+                <img src="images/gallery/family-2.jpg" alt="Family adventure outdoors" width="800" height="800" loading="lazy">
+              </figure>
+              <figure class="carousel-slide" data-caption="Celebrations">
+                <img src="images/gallery/family-3.jpg" alt="Celebrating a special day" width="800" height="800" loading="lazy">
+              </figure>
+              <figure class="carousel-slide" data-caption="At home">
+                <img src="images/gallery/family-4.jpg" alt="Quiet moment at home" width="800" height="800" loading="lazy">
+              </figure>
+              <figure class="carousel-slide" data-caption="Travel">
+                <img src="images/gallery/family-5.jpg" alt="Family travel memory" width="800" height="800" loading="lazy">
+              </figure>
+              <figure class="carousel-slide" data-caption="Memories">
+                <img src="images/gallery/family-6.jpg" alt="Making memories" width="800" height="800" loading="lazy">
+              </figure>
+            </div>
+          </div>
+
+          <button class="carousel-btn carousel-next" type="button" id="carousel-next" aria-label="Next photo">&#8250;</button>
+        </div>
+
+        <div class="carousel-meta">
+          <p class="carousel-caption" id="carousel-caption">Together</p>
+          <p class="carousel-counter" id="carousel-counter" aria-live="polite">1 / 6</p>
+        </div>
+
+        <div class="carousel-dots" id="carousel-dots" role="tablist" aria-label="Photo thumbnails"></div>
       </div>
     </div>
   </div>
@@ -184,7 +196,10 @@
 
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
     <button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lightbox-prev" type="button" aria-label="Previous photo">&#8249;</button>
     <img id="lightbox-img" src="" alt="">
+    <button class="lightbox-nav lightbox-next" id="lightbox-next" type="button" aria-label="Next photo">&#8250;</button>
+    <p class="lightbox-caption" id="lightbox-caption"></p>
   </div>
 
   <script async src="https://www.instagram.com/embed.js"></script>
